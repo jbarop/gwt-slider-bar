@@ -17,7 +17,7 @@ public class Title extends AbsolutePanel {
 	Label gwtSliderbarLabel = new Label("GWT SliderBar");
 	Anchor wikiMainPageRef  = new Anchor("Getting started", false, "http://code.google.com/p/img-slider-bar/");
 	Anchor downloadPageRef  = new Anchor("Download", false, "http://code.google.com/p/img-slider-bar/downloads/list");
-	Anchor sourcePageRef    = new Anchor("Source", false, "http://code.google.com/p/img-slider-bar/source/checkout");
+	Anchor sourcePageRef    = new Anchor("Source", false, "http://code.google.com/p/gwt-slider-bar/source/checkout");
 	
 	
 	
