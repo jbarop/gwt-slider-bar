@@ -84,3 +84,8 @@ background-color: #AAAAAA;
  border-style: solid;  
 }
 
+.mailme {
+  color : #7F7F7F;
+  font-style:italic;
+  font-weight:bold;	
+}	
