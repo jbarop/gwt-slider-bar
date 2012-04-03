@@ -2,8 +2,9 @@
 <module rename-to='sliderbarmvp'>
 
   <inherits name='com.google.gwt.user.User' />
+  <inherits name='com.google.gwt.user.theme.standard.Standard' />
 
-  <stylesheet src='css/style.css' />
+  <entry-point class='com.kiouri.sliderbar.client.SliderBarMVP' />
 
   <source path='client' />
 
