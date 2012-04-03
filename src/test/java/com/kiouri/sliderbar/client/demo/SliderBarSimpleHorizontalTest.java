@@ -8,21 +8,25 @@ import com.kiouri.sliderbar.client.solution.simplehorizontal.SliderBarSimpleHori
 
 public class SliderBarSimpleHorizontalTest {
 
-	SliderBarSimpleHorizontal sliderBarSimpleHorizontal;
+  SliderBarSimpleHorizontal sliderBarSimpleHorizontal;
 
-	public SliderBarSimpleHorizontalTest(int maxValue, String width,  int left, int top, boolean showRows) {
+  public SliderBarSimpleHorizontalTest(
+      int maxValue,
+      String width,
+      int left,
+      int top,
+      boolean showRows) {
 
-		sliderBarSimpleHorizontal = new SliderBarSimpleHorizontal(maxValue, width, showRows);
+    sliderBarSimpleHorizontal = new SliderBarSimpleHorizontal(maxValue, width, showRows);
 
-		sliderBarSimpleHorizontal
-				.addBarValueChangedHandler(new BarValueChangedHandler() {
-					public void onBarValueChanged(BarValueChangedEvent event) {
-						GWT.log("value = " + event.getValue());
-					}
-				});
+    sliderBarSimpleHorizontal.addBarValueChangedHandler(new BarValueChangedHandler() {
+      public void onBarValueChanged(BarValueChangedEvent event) {
+        GWT.log("value = " + event.getValue());
+      }
+    });
 
-		RootPanel.get().add(sliderBarSimpleHorizontal.asWidget(), left, top);
-	
-	}	
-	
+    RootPanel.get().add(sliderBarSimpleHorizontal.asWidget(), left, top);
+
+  }
+
 }

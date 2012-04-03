@@ -8,20 +8,24 @@ import com.kiouri.sliderbar.client.solution.simplevertical.SliderBarSimpleVertic
 
 public class SliderBarSimpleVerticalTest {
 
-	SliderBarSimpleVertical sliderBarSimpleVertical;
+  SliderBarSimpleVertical sliderBarSimpleVertical;
 
-	public SliderBarSimpleVerticalTest(int maxValue, String height,  int left, int top, boolean showRows) {
+  public SliderBarSimpleVerticalTest(
+      int maxValue,
+      String height,
+      int left,
+      int top,
+      boolean showRows) {
 
-		sliderBarSimpleVertical = new SliderBarSimpleVertical(maxValue, height, showRows);
+    sliderBarSimpleVertical = new SliderBarSimpleVertical(maxValue, height, showRows);
 
-		sliderBarSimpleVertical
-				.addBarValueChangedHandler(new BarValueChangedHandler() {
-					public void onBarValueChanged(BarValueChangedEvent event) {
-						GWT.log("value = " + event.getValue());
-					}
-				});
+    sliderBarSimpleVertical.addBarValueChangedHandler(new BarValueChangedHandler() {
+      public void onBarValueChanged(BarValueChangedEvent event) {
+        GWT.log("value = " + event.getValue());
+      }
+    });
 
-		RootPanel.get().add(sliderBarSimpleVertical.asWidget(), left, top);
-	}
+    RootPanel.get().add(sliderBarSimpleVertical.asWidget(), left, top);
+  }
 
 }

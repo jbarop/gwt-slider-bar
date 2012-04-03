@@ -10,26 +10,25 @@ import com.kiouri.sliderbar.client.demo.MainPanel;
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
  */
-public class SliderBarMVP implements EntryPoint, ResizeHandler{
+public class SliderBarMVP implements EntryPoint, ResizeHandler {
 
-	MainPanel mainPanel = new MainPanel();
+  MainPanel mainPanel = new MainPanel();
 
-	/**
-	 * This is the entry point method.
-	 */ 
-	public void onModuleLoad() {
-		RootPanel.get().add(mainPanel, (Window.getClientWidth() - 985) / 2 ,0);
-		Window.addResizeHandler(this);
-	}
+  /**
+   * This is the entry point method.
+   */
+  public void onModuleLoad() {
+    RootPanel.get().add(mainPanel, (Window.getClientWidth() - 985) / 2, 0);
+    Window.addResizeHandler(this);
+  }
 
-	public void onResize(ResizeEvent event) {
-		RootPanel.get().setWidgetPosition(mainPanel, (Window.getClientWidth() - 985) / 2 ,0);		
-	}
+  public void onResize(ResizeEvent event) {
+    RootPanel.get().setWidgetPosition(mainPanel, (Window.getClientWidth() - 985) / 2, 0);
+  }
 }
 
-
-//Presenter presenter = new Presenter(Orientation.VERTICAL);
-//YBar ybar = new YBar(10, "180px", false, presenter);
-//presenter.setDislay(ybar);
-//RootPanel.get().add(ybar, 50, 50);
+// Presenter presenter = new Presenter(Orientation.VERTICAL);
+// YBar ybar = new YBar(10, "180px", false, presenter);
+// presenter.setDislay(ybar);
+// RootPanel.get().add(ybar, 50, 50);
 

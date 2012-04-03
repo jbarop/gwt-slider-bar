@@ -7,34 +7,33 @@ import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.user.client.ui.Image;
 import com.kiouri.sliderbar.client.view.SliderBarHorizontal;
 
-public class SizeAjuster extends SliderBarHorizontal{
-	
-	ImagesSizeAjuster images = GWT.create(ImagesSizeAjuster.class);
+public class SizeAjuster extends SliderBarHorizontal {
 
-	public SizeAjuster(){
-		this.setLessWidget(new Image(images.less()));
-		this.setScaleWidget(new Image(images.scale().getUrl()), 4);
-		this.setMoreWidget(new Image(images.more()));		
-		this.setDragWidget(new Image(images.drag()));
-		this.setMaxValue(4);
-		this.setWidth("148px");
-	}
+  ImagesSizeAjuster images = GWT.create(ImagesSizeAjuster.class);
 
-	interface ImagesSizeAjuster extends ClientBundle {
-		
-		@Source("portraitless.png")
-		ImageResource less();
-		
-		@Source("portraitmore.png")
-		ImageResource more();
-		
-		@Source("drag.png")
-		ImageResource drag();
-		
-		@Source("scale.png")
-		DataResource scale();
-		
-	}	
+  public SizeAjuster() {
+    this.setLessWidget(new Image(images.less()));
+    this.setScaleWidget(new Image(images.scale().getUrl()), 4);
+    this.setMoreWidget(new Image(images.more()));
+    this.setDragWidget(new Image(images.drag()));
+    this.setMaxValue(4);
+    this.setWidth("148px");
+  }
 
-	
+  interface ImagesSizeAjuster extends ClientBundle {
+
+    @Source("portraitless.png")
+    ImageResource less();
+
+    @Source("portraitmore.png")
+    ImageResource more();
+
+    @Source("drag.png")
+    ImageResource drag();
+
+    @Source("scale.png")
+    DataResource scale();
+
+  }
+
 }

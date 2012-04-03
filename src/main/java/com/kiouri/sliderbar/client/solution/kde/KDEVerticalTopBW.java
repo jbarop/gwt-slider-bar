@@ -7,33 +7,33 @@ import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.user.client.ui.Image;
 import com.kiouri.sliderbar.client.view.SliderBarVertical;
 
-public class KDEVerticalTopBW  extends SliderBarVertical {
-		
-	ImagesKDEVerticalTopBW images = GWT.create(ImagesKDEVerticalTopBW.class);
+public class KDEVerticalTopBW extends SliderBarVertical {
 
-	public KDEVerticalTopBW(int maxValue, String height) {		
-	    setLessWidget(new Image(images.less()) );
-	    setMoreWidget(new Image(images.more()));
-		setScaleWidget(new Image(images.scale().getUrl()), 16);
-		setMoreWidget(new Image(images.more()));
-		setDragWidget(new Image(images.drag()));
-		this.setHeight(height);
-		this.setMaxValue(maxValue);	
-	}
-		
-	interface ImagesKDEVerticalTopBW extends ClientBundle {
-		
-		@Source("kdevdrag.png")
-		ImageResource drag();
+  ImagesKDEVerticalTopBW images = GWT.create(ImagesKDEVerticalTopBW.class);
 
-		@Source("kdevless.png")
-		ImageResource less();
+  public KDEVerticalTopBW(int maxValue, String height) {
+    setLessWidget(new Image(images.less()));
+    setMoreWidget(new Image(images.more()));
+    setScaleWidget(new Image(images.scale().getUrl()), 16);
+    setMoreWidget(new Image(images.more()));
+    setDragWidget(new Image(images.drag()));
+    this.setHeight(height);
+    this.setMaxValue(maxValue);
+  }
 
-		@Source("kdevmore.png")
-		ImageResource more();
+  interface ImagesKDEVerticalTopBW extends ClientBundle {
 
-		@Source("kdevscale.png")
-		DataResource scale();
-	}	
-		
+    @Source("kdevdrag.png")
+    ImageResource drag();
+
+    @Source("kdevless.png")
+    ImageResource less();
+
+    @Source("kdevmore.png")
+    ImageResource more();
+
+    @Source("kdevscale.png")
+    DataResource scale();
+  }
+
 }

@@ -11,26 +11,26 @@ import com.kiouri.sliderbar.client.solution.ybar.YBar;
 
 public class YBarDemo extends AbsolutePanel {
 
-	ImagesYBar images = GWT.create(ImagesYBar.class);
-	YBar yBar ;	
-	
-	public YBarDemo(boolean selected, int value){
-		yBar = new YBar(17,"187px",selected);
-		this.setPixelSize(108, 260);
-		Image mapImage = new Image(images.map());
-		mapImage.addMouseDownHandler(new MouseDownHandler(){
-			public void onMouseDown(MouseDownEvent event) {
-				event.preventDefault();
-			}			
-		});
-		this.add(mapImage, 0, 0);
-		this.add(yBar, 35, 36);
-		yBar.setValue(value);				
-		
-	}
-	
-	interface ImagesYBar extends ClientBundle{
-		@Source("map.png")
-		ImageResource map();
-	}	
+  ImagesYBar images = GWT.create(ImagesYBar.class);
+  YBar yBar;
+
+  public YBarDemo(boolean selected, int value) {
+    yBar = new YBar(17, "187px", selected);
+    this.setPixelSize(108, 260);
+    Image mapImage = new Image(images.map());
+    mapImage.addMouseDownHandler(new MouseDownHandler() {
+      public void onMouseDown(MouseDownEvent event) {
+        event.preventDefault();
+      }
+    });
+    this.add(mapImage, 0, 0);
+    this.add(yBar, 35, 36);
+    yBar.setValue(value);
+
+  }
+
+  interface ImagesYBar extends ClientBundle {
+    @Source("map.png")
+    ImageResource map();
+  }
 }

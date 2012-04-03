@@ -7,33 +7,33 @@ import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.user.client.ui.Image;
 import com.kiouri.sliderbar.client.view.SliderBarHorizontal;
 
-public class KDEHorizontalRightBW extends SliderBarHorizontal{
-	
-	ImagesKDEHorizontalRightBW images = GWT.create(ImagesKDEHorizontalRightBW.class);
-	
-	public KDEHorizontalRightBW(int maxValue, String width) {		
-	    setLessWidget(new Image(images.less()));
-		setScaleWidget(new Image(images.scale().getUrl()), 16);
-	    setMoreWidget(new Image(images.less()));
-		setMoreWidget(new Image(images.more()));
-		setDragWidget(new Image(images.drag()));
-		this.setWidth(width);
-		this.setMaxValue(maxValue);		
-	}	
-	
-	interface ImagesKDEHorizontalRightBW extends ClientBundle {
-		
-		@Source("kdehdrag.png")
-		ImageResource drag();
+public class KDEHorizontalRightBW extends SliderBarHorizontal {
 
-		@Source("kdehless.png")
-		ImageResource less();
+  ImagesKDEHorizontalRightBW images = GWT.create(ImagesKDEHorizontalRightBW.class);
 
-		@Source("kdehmore.png")
-		ImageResource more();
+  public KDEHorizontalRightBW(int maxValue, String width) {
+    setLessWidget(new Image(images.less()));
+    setScaleWidget(new Image(images.scale().getUrl()), 16);
+    setMoreWidget(new Image(images.less()));
+    setMoreWidget(new Image(images.more()));
+    setDragWidget(new Image(images.drag()));
+    this.setWidth(width);
+    this.setMaxValue(maxValue);
+  }
 
-		@Source("kdehscale.png")
-		DataResource scale();
-	}	
+  interface ImagesKDEHorizontalRightBW extends ClientBundle {
+
+    @Source("kdehdrag.png")
+    ImageResource drag();
+
+    @Source("kdehless.png")
+    ImageResource less();
+
+    @Source("kdehmore.png")
+    ImageResource more();
+
+    @Source("kdehscale.png")
+    DataResource scale();
+  }
 
 }

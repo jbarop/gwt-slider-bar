@@ -5,18 +5,18 @@ import com.kiouri.sliderbar.client.solution.simplevertical.SliderBarSimpleVertic
 
 public class InterractiveVertical {
 
-	InrerractiveSample<SliderBarSimpleVertical> verticalInrerractiveSample;
-	
-	public InterractiveVertical(int maxValue, String width) {
-		SliderBarSimpleVertical sliderBarSimpleVertical = 
-			new SliderBarSimpleVertical(maxValue, width,  true);
-		
-		verticalInrerractiveSample = 
-			new InrerractiveSample<SliderBarSimpleVertical>(sliderBarSimpleVertical,width);
-	}
-	
-	public Widget asWidget(){
-		return this.verticalInrerractiveSample;
-	}
-			
+  InrerractiveSample<SliderBarSimpleVertical> verticalInrerractiveSample;
+
+  public InterractiveVertical(int maxValue, String width) {
+    SliderBarSimpleVertical sliderBarSimpleVertical = new SliderBarSimpleVertical(maxValue, width,
+        true);
+
+    verticalInrerractiveSample = new InrerractiveSample<SliderBarSimpleVertical>(
+        sliderBarSimpleVertical, width);
+  }
+
+  public Widget asWidget() {
+    return this.verticalInrerractiveSample;
+  }
+
 }

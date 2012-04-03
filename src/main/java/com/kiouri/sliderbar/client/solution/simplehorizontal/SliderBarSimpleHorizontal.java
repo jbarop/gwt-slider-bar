@@ -7,37 +7,36 @@ import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.user.client.ui.Image;
 import com.kiouri.sliderbar.client.view.SliderBarHorizontal;
 
-public class SliderBarSimpleHorizontal extends SliderBarHorizontal{
-	
-	ImagesSliderBarSimpleHorizontal images = GWT.create(ImagesSliderBarSimpleHorizontal.class);
+public class SliderBarSimpleHorizontal extends SliderBarHorizontal {
 
-	public SliderBarSimpleHorizontal(int maxValue, String width, boolean showRows) {
-		if (showRows){
-			setLessWidget(new Image(images.less()) );
-			setScaleWidget(new Image(images.scaleh().getUrl()), 10);
-			setMoreWidget(new Image(images.more()));
-		} else {
-		    setScaleWidget(new Image(images.scaleh().getUrl()), 10);
-		}
-		setDragWidget(new Image(images.drag()));
-		this.setWidth(width);
-		this.setMaxValue(maxValue);
-	}
+  ImagesSliderBarSimpleHorizontal images = GWT.create(ImagesSliderBarSimpleHorizontal.class);
 
-	interface ImagesSliderBarSimpleHorizontal extends ClientBundle{
-		
-		@Source("draghthin.png")
-		ImageResource drag();
+  public SliderBarSimpleHorizontal(int maxValue, String width, boolean showRows) {
+    if (showRows) {
+      setLessWidget(new Image(images.less()));
+      setScaleWidget(new Image(images.scaleh().getUrl()), 10);
+      setMoreWidget(new Image(images.more()));
+    } else {
+      setScaleWidget(new Image(images.scaleh().getUrl()), 10);
+    }
+    setDragWidget(new Image(images.drag()));
+    this.setWidth(width);
+    this.setMaxValue(maxValue);
+  }
 
-		@Source("minush.png")
-		ImageResource less();
+  interface ImagesSliderBarSimpleHorizontal extends ClientBundle {
 
-		@Source("plush.png")
-		ImageResource more();
+    @Source("draghthin.png")
+    ImageResource drag();
 
-		@Source("scalehthinblack.png")
-		DataResource scaleh();		
-	}	
-		
+    @Source("minush.png")
+    ImageResource less();
+
+    @Source("plush.png")
+    ImageResource more();
+
+    @Source("scalehthinblack.png")
+    DataResource scaleh();
+  }
+
 }
-
