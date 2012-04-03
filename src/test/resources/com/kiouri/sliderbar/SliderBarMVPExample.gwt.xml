@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='sliderbarmvp'>
+
+  <inherits name='com.kiouri.sliderbar.SliderBarMVP' />
+  <inherits name='com.google.gwt.user.theme.standard.Standard' />
+
+  <entry-point class='com.kiouri.sliderbar.client.SliderBarMVP' />
+
+  <source path='client' />
+
+</module>
