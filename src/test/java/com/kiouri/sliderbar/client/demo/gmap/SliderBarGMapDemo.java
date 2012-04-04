@@ -14,12 +14,13 @@ public class SliderBarGMapDemo extends AbsolutePanel {
   ImagesGMap images = GWT.create(ImagesGMap.class);
   SliderBarGMap sliderBarGMap;
 
-  public SliderBarGMapDemo(boolean selected, int value) {
+  public SliderBarGMapDemo(final boolean selected, final int value) {
     sliderBarGMap = new SliderBarGMap(10, "240px", selected);
     this.setPixelSize(108, 260);
     Image mapImage = new Image(images.map());
     mapImage.addMouseDownHandler(new MouseDownHandler() {
-      public void onMouseDown(MouseDownEvent event) {
+      @Override
+      public void onMouseDown(final MouseDownEvent event) {
         event.preventDefault();
       }
     });

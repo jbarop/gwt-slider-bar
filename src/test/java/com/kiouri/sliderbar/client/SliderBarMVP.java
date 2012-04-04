@@ -17,12 +17,14 @@ public class SliderBarMVP implements EntryPoint, ResizeHandler {
   /**
    * This is the entry point method.
    */
+  @Override
   public void onModuleLoad() {
     RootPanel.get().add(mainPanel, (Window.getClientWidth() - 985) / 2, 0);
     Window.addResizeHandler(this);
   }
 
-  public void onResize(ResizeEvent event) {
+  @Override
+  public void onResize(final ResizeEvent event) {
     RootPanel.get().setWidgetPosition(mainPanel, (Window.getClientWidth() - 985) / 2, 0);
   }
 }

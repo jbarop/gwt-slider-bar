@@ -7,7 +7,7 @@ public class BarValueChangedEvent extends GwtEvent<BarValueChangedHandler> {
 
   int value;
 
-  public BarValueChangedEvent(int position) {
+  public BarValueChangedEvent(final int position) {
     this.value = position;
   }
 
@@ -15,7 +15,7 @@ public class BarValueChangedEvent extends GwtEvent<BarValueChangedHandler> {
     return value;
   }
 
-  public void setValue(int position) {
+  public void setValue(final int position) {
     this.value = position;
   }
 
@@ -25,7 +25,7 @@ public class BarValueChangedEvent extends GwtEvent<BarValueChangedHandler> {
   }
 
   @Override
-  protected void dispatch(BarValueChangedHandler handler) {
+  protected void dispatch(final BarValueChangedHandler handler) {
     handler.onBarValueChanged(this);
   }
 

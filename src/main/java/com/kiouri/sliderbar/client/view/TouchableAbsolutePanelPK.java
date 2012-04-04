@@ -18,35 +18,41 @@ import com.google.gwt.user.client.ui.AbsolutePanel;
 
 public class TouchableAbsolutePanelPK extends AbsolutePanel implements HasAllMouseHandlers {
 
-  public HandlerRegistration addMouseDownHandler(MouseDownHandler handler) {
+  @Override
+  public HandlerRegistration addMouseDownHandler(final MouseDownHandler handler) {
     return addDomHandler(handler, MouseDownEvent.getType());
   }
 
-  public HandlerRegistration addMouseUpHandler(MouseUpHandler handler) {
+  @Override
+  public HandlerRegistration addMouseUpHandler(final MouseUpHandler handler) {
     return addDomHandler(handler, MouseUpEvent.getType());
   }
 
-  public HandlerRegistration addMouseOutHandler(MouseOutHandler handler) {
+  @Override
+  public HandlerRegistration addMouseOutHandler(final MouseOutHandler handler) {
     return addDomHandler(handler, MouseOutEvent.getType());
   }
 
-  public HandlerRegistration addMouseOverHandler(MouseOverHandler handler) {
+  @Override
+  public HandlerRegistration addMouseOverHandler(final MouseOverHandler handler) {
     return addDomHandler(handler, MouseOverEvent.getType());
   }
 
-  public HandlerRegistration addMouseMoveHandler(MouseMoveHandler handler) {
+  @Override
+  public HandlerRegistration addMouseMoveHandler(final MouseMoveHandler handler) {
     return addDomHandler(handler, MouseMoveEvent.getType());
   }
 
-  public HandlerRegistration addMouseWheelHandler(MouseWheelHandler handler) {
+  @Override
+  public HandlerRegistration addMouseWheelHandler(final MouseWheelHandler handler) {
     return addDomHandler(handler, MouseWheelEvent.getType());
   }
 
-  public HandlerRegistration addMouseOverEventHandler(MouseOverHandler handler) {
+  public HandlerRegistration addMouseOverEventHandler(final MouseOverHandler handler) {
     return addDomHandler(handler, MouseOverEvent.getType());
   }
 
-  public HandlerRegistration addMouseOutEventHandler(MouseOutHandler handler) {
+  public HandlerRegistration addMouseOutEventHandler(final MouseOutHandler handler) {
     return addDomHandler(handler, MouseOutEvent.getType());
   }
 

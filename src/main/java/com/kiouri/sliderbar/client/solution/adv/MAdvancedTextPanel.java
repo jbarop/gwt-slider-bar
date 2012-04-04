@@ -12,7 +12,7 @@ public class MAdvancedTextPanel extends TouchableAbsolutePanelPK {
   boolean isSelected = false;
   Image selectedImage, notSelectedImage;
 
-  public MAdvancedTextPanel(Image notSelectedImage, Image selectedImage) {
+  public MAdvancedTextPanel(final Image notSelectedImage, final Image selectedImage) {
     this.selectedImage = selectedImage;
     this.notSelectedImage = notSelectedImage;
     this.add(selectedImage, 0, 0);
@@ -33,13 +33,15 @@ public class MAdvancedTextPanel extends TouchableAbsolutePanelPK {
 
   public void bind() {
     this.addMouseOverEventHandler(new MouseOverHandler() {
-      public void onMouseOver(MouseOverEvent event) {
+      @Override
+      public void onMouseOver(final MouseOverEvent event) {
         setSelectedStyle();
       }
     });
 
     this.addMouseOutEventHandler(new MouseOutHandler() {
-      public void onMouseOut(MouseOutEvent event) {
+      @Override
+      public void onMouseOut(final MouseOutEvent event) {
         setNotSelectedStyle();
       }
     });

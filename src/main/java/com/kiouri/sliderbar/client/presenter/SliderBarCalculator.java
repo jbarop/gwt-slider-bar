@@ -12,11 +12,11 @@ public class SliderBarCalculator {
     return maxValue;
   }
 
-  public void setMaxValue(int maxValue) {
+  public void setMaxValue(final int maxValue) {
     this.maxValue = maxValue;
   }
 
-  public void setAbsMaxLength(int absMaxLength) {
+  public void setAbsMaxLength(final int absMaxLength) {
     this.absMaxLength = absMaxLength;
   }
 
@@ -52,7 +52,7 @@ public class SliderBarCalculator {
     return value;
   }
 
-  protected int clcAbsPositionByValue(int value) {
+  protected int clcAbsPositionByValue(final int value) {
     int absPosition;
     if (k >= 1) {
       absPosition = value * step;

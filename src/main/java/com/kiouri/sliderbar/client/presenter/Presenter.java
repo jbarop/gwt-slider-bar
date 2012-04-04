@@ -52,20 +52,21 @@ public class Presenter {
   protected Orientation orientation;
   protected int minMarkStep = 10;
 
-  public Presenter(Display display, Orientation orientation) {
+  public Presenter(final Display display, final Orientation orientation) {
     this.display = display;
     this.orientation = orientation;
   }
 
-  public Presenter(Orientation orientation) {
+  public Presenter(final Orientation orientation) {
     this(null, orientation);
   }
 
-  public void setDislay(Display display) {
+  public void setDislay(final Display display) {
     this.display = display;
   }
 
-  public HandlerRegistration addBarValueChangedHandler(BarValueChangedHandler barValueChangedHandler) {
+  public HandlerRegistration addBarValueChangedHandler(
+      final BarValueChangedHandler barValueChangedHandler) {
     return handlerManager.addHandler(BarValueChangedEvent.TYPE, barValueChangedHandler);
   }
 
@@ -80,11 +81,11 @@ public class Presenter {
     sliderBarCalulator.setMaxValue(maxValue);
   }
 
-  public void setAbsMaxLength(int absMaxLength) {
+  public void setAbsMaxLength(final int absMaxLength) {
     sliderBarCalulator.setAbsMaxLength(absMaxLength);
   }
 
-  public void setBarPixelSize(int barPixelSize) {
+  public void setBarPixelSize(final int barPixelSize) {
     display.drawScrollBar(barPixelSize);
     sliderBarCalulator.setAbsMaxLength(display.getAbsMaxLength());
   }
@@ -110,7 +111,7 @@ public class Presenter {
     return currentValue;
   }
 
-  protected void onRootMouseWheel(MouseWheelEvent event) {
+  protected void onRootMouseWheel(final MouseWheelEvent event) {
     increaseValue(event.getDeltaY());
   }
 
@@ -122,7 +123,7 @@ public class Presenter {
     increaseValue(1);
   }
 
-  protected void onDragMouseDown(MouseDownEvent event) {
+  protected void onDragMouseDown(final MouseDownEvent event) {
     if (this.maxValue == 0) {
       return;
     }
@@ -132,7 +133,7 @@ public class Presenter {
     touchPosition = display.getScaleTouchPosition(event);
   }
 
-  protected void onDragMouseUp(MouseUpEvent event) {
+  protected void onDragMouseUp(final MouseUpEvent event) {
     if (this.maxValue == 0) {
       return;
     }
@@ -143,7 +144,7 @@ public class Presenter {
     setDragPosition(sliderBarCalulator.clcAbsPositionByValue(currentValue), true);
   }
 
-  protected void onDragMouseMove(MouseMoveEvent event) {
+  protected void onDragMouseMove(final MouseMoveEvent event) {
     if (this.maxValue == 0) {
       return;
     }
@@ -158,7 +159,7 @@ public class Presenter {
     touchPosition = newTochPosition;
   }
 
-  protected void onScaleMouseDown(MouseDownEvent event) {
+  protected void onScaleMouseDown(final MouseDownEvent event) {
     if (this.maxValue == 0) {
       return;
     }
@@ -167,7 +168,7 @@ public class Presenter {
     setDragPosition(sliderBarCalulator.clcAbsPositionByValue(currentValue), true);
   }
 
-  protected void onRootMouseDown(MouseDownEvent event) {
+  protected void onRootMouseDown(final MouseDownEvent event) {
     if (this.maxValue == 0) {
       return;
     }
@@ -175,7 +176,7 @@ public class Presenter {
     setDragPosition(sliderBarCalulator.clcAbsPositionByValue(currentValue), true);
   }
 
-  protected void onRootMouseOver(MouseOverEvent event) {
+  protected void onRootMouseOver(final MouseOverEvent event) {
     if (this.maxValue == 0) {
       return;
     }
@@ -183,14 +184,14 @@ public class Presenter {
     display.getRootWidget().getElement().focus();
   }
 
-  protected void onRootMouseOut(MouseOutEvent event) {
+  protected void onRootMouseOut(final MouseOutEvent event) {
     if (this.maxValue == 0) {
       return;
     }
     setCursorType(DEFAULT);
   }
 
-  protected void onLessMouseDown(MouseDownEvent event) {
+  protected void onLessMouseDown(final MouseDownEvent event) {
     if (this.maxValue == 0) {
       return;
     }
@@ -198,7 +199,7 @@ public class Presenter {
     increaseValue(-1);
   }
 
-  protected void onMoreMouseDown(MouseDownEvent event) {
+  protected void onMoreMouseDown(final MouseDownEvent event) {
     if (this.maxValue == 0) {
       return;
     }
@@ -209,14 +210,16 @@ public class Presenter {
   public void bind() {
 
     ((HasMouseWheelHandlers) display.getRootWidget()).addMouseWheelHandler(new MouseWheelHandler() {
-      public void onMouseWheel(MouseWheelEvent event) {
+      @Override
+      public void onMouseWheel(final MouseWheelEvent event) {
         event.preventDefault();
         onRootMouseWheel(event);
       }
     });
 
     ((HasKeyDownHandlers) display.getRootWidget()).addKeyDownHandler(new KeyDownHandler() {
-      public void onKeyDown(KeyDownEvent event) {
+      @Override
+      public void onKeyDown(final KeyDownEvent event) {
         int nativeKeyCode = event.getNativeKeyCode();
         if (orientation == Orientation.VERTICAL) {
           if (nativeKeyCode == KeyCodes.KEY_UP) {
@@ -237,43 +240,50 @@ public class Presenter {
     });
 
     ((HasMouseDownHandlers) display.getDragWidget()).addMouseDownHandler(new MouseDownHandler() {
-      public void onMouseDown(MouseDownEvent event) {
+      @Override
+      public void onMouseDown(final MouseDownEvent event) {
         onDragMouseDown(event);
       }
     });
 
     ((HasMouseMoveHandlers) display.getDragWidget()).addMouseMoveHandler(new MouseMoveHandler() {
-      public void onMouseMove(MouseMoveEvent event) {
+      @Override
+      public void onMouseMove(final MouseMoveEvent event) {
         onDragMouseMove(event);
       }
     });
 
     ((HasMouseUpHandlers) display.getDragWidget()).addMouseUpHandler(new MouseUpHandler() {
-      public void onMouseUp(MouseUpEvent event) {
+      @Override
+      public void onMouseUp(final MouseUpEvent event) {
         onDragMouseUp(event);
       }
     });
 
     ((HasMouseDownHandlers) display.getScaleWidget()).addMouseDownHandler(new MouseDownHandler() {
-      public void onMouseDown(MouseDownEvent event) {
+      @Override
+      public void onMouseDown(final MouseDownEvent event) {
         onScaleMouseDown(event);
       }
     });
 
     ((HasMouseDownHandlers) display.getRootWidget()).addMouseDownHandler(new MouseDownHandler() {
-      public void onMouseDown(MouseDownEvent event) {
+      @Override
+      public void onMouseDown(final MouseDownEvent event) {
         onRootMouseDown(event);
       }
     });
 
     ((HasMouseOverHandlers) display.getRootWidget()).addMouseOverHandler(new MouseOverHandler() {
-      public void onMouseOver(MouseOverEvent event) {
+      @Override
+      public void onMouseOver(final MouseOverEvent event) {
         onRootMouseOver(event);
       }
     });
 
     ((HasMouseOutHandlers) display.getRootWidget()).addMouseOutHandler(new MouseOutHandler() {
-      public void onMouseOut(MouseOutEvent event) {
+      @Override
+      public void onMouseOut(final MouseOutEvent event) {
         onRootMouseOut(event);
       }
     });
@@ -282,7 +292,8 @@ public class Presenter {
     if (lessWidgets != null) {
       for (int i = 0; i < lessWidgets.size(); i++) {
         ((HasMouseDownHandlers) lessWidgets.get(i)).addMouseDownHandler(new MouseDownHandler() {
-          public void onMouseDown(MouseDownEvent event) {
+          @Override
+          public void onMouseDown(final MouseDownEvent event) {
             onLessMouseDown(event);
           }
         });
@@ -293,7 +304,8 @@ public class Presenter {
     if (moreWidgets != null) {
       for (int i = 0; i < moreWidgets.size(); i++) {
         ((HasMouseDownHandlers) moreWidgets.get(i)).addMouseDownHandler(new MouseDownHandler() {
-          public void onMouseDown(MouseDownEvent event) {
+          @Override
+          public void onMouseDown(final MouseDownEvent event) {
             onMoreMouseDown(event);
           }
         });
@@ -317,7 +329,7 @@ public class Presenter {
     return value;
   }
 
-  protected void increaseValue(int stepCount) {
+  protected void increaseValue(final int stepCount) {
     currentValue += stepCount;
     currentValue = checkValue(currentValue);
     int cDragPosition = display.getDragPosition();
@@ -329,7 +341,7 @@ public class Presenter {
     setDragPosition(sliderBarCalulator.clcAbsPositionByValue(currentValue), true);
   }
 
-  public void setDragPosition(int position, boolean fireEvent) {
+  public void setDragPosition(final int position, final boolean fireEvent) {
     currentValue = sliderBarCalulator.clcValueByAbsPosition(position);
     display.setDragPosition(position);
     if (fireEvent && currentValue != lastFiredValue) {
@@ -337,16 +349,16 @@ public class Presenter {
     }
   }
 
-  protected void stopDefaultAndPropagationForEvent(DomEvent event) {
+  protected void stopDefaultAndPropagationForEvent(final DomEvent event) {
     event.preventDefault();
     event.stopPropagation();
   }
 
-  public void setCursorType(String cursorType) {
+  public void setCursorType(final String cursorType) {
     DOM.setStyleAttribute(display.getRootWidget().getElement(), "cursor", cursorType);
   }
 
-  public void drawMarks(String color, int delimSize) {
+  public void drawMarks(final String color, final int delimSize) {
     if (!isMarkAvailable()) {
       return;
     }
@@ -380,7 +392,7 @@ public class Presenter {
     }
   }
 
-  public void setMinMarkStep(int minMarkStep) {
+  public void setMinMarkStep(final int minMarkStep) {
     this.minMarkStep = minMarkStep;
   }
 

@@ -14,12 +14,13 @@ public class YBarDemo extends AbsolutePanel {
   ImagesYBar images = GWT.create(ImagesYBar.class);
   YBar yBar;
 
-  public YBarDemo(boolean selected, int value) {
+  public YBarDemo(final boolean selected, final int value) {
     yBar = new YBar(17, "187px", selected);
     this.setPixelSize(108, 260);
     Image mapImage = new Image(images.map());
     mapImage.addMouseDownHandler(new MouseDownHandler() {
-      public void onMouseDown(MouseDownEvent event) {
+      @Override
+      public void onMouseDown(final MouseDownEvent event) {
         event.preventDefault();
       }
     });

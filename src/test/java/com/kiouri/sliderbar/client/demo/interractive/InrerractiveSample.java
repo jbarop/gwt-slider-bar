@@ -7,7 +7,6 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.AbsolutePanel;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
-import com.google.gwt.user.client.ui.FocusPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.TextBox;
@@ -48,7 +47,7 @@ public class InrerractiveSample<T extends SliderBar> extends AbsolutePanel {
   AbsolutePanel valuePanel = new AbsolutePanel();
   AbsolutePanel scalePanel = new AbsolutePanel();
 
-  public InrerractiveSample(T sBar, String width) {
+  public InrerractiveSample(final T sBar, final String width) {
     this.sliderBar = sBar;
     this.width = width;
 
@@ -69,7 +68,7 @@ public class InrerractiveSample<T extends SliderBar> extends AbsolutePanel {
       this.setPixelSizeButton.setText("Set width");
       this.add(titleLabel, 5, 5);
       this.setPixelSize(962, 200);
-      this.add((FocusPanel) sliderBar, 0, 40);
+      this.add(sliderBar, 0, 40);
       this.add(valuePanel, 0, 60);
       this.add(scalePanel, 370, 65);
     } else {
@@ -78,7 +77,7 @@ public class InrerractiveSample<T extends SliderBar> extends AbsolutePanel {
       this.setPixelSizeButton.setText("Set height");
       this.add(titleLabel, 50, 5);
       this.setPixelSize(450, 600);
-      this.add((FocusPanel) sliderBar, 5, 0);
+      this.add(sliderBar, 5, 0);
       this.add(valuePanel, 50, 35);
       this.add(scalePanel, 50, 220);
     }
@@ -86,13 +85,15 @@ public class InrerractiveSample<T extends SliderBar> extends AbsolutePanel {
 
   protected void bind() {
     sliderBar.addBarValueChangedHandler(new BarValueChangedHandler() {
-      public void onBarValueChanged(BarValueChangedEvent event) {
+      @Override
+      public void onBarValueChanged(final BarValueChangedEvent event) {
         valueBox.setValue("" + event.getValue());
       }
     });
 
     scaleColor.addChangeHandler(new ChangeHandler() {
-      public void onChange(ChangeEvent event) {
+      @Override
+      public void onChange(final ChangeEvent event) {
         sliderBar.removeMarks();
         String selectedColor = scaleColor.getItemText(scaleColor.getSelectedIndex()).trim();
         if (!(selectedColor.equalsIgnoreCase("white") || selectedColor.equalsIgnoreCase("red"))) {
@@ -104,7 +105,8 @@ public class InrerractiveSample<T extends SliderBar> extends AbsolutePanel {
     });
 
     scaleDelimiterSize.addClickHandler(new ClickHandler() {
-      public void onClick(ClickEvent event) {
+      @Override
+      public void onClick(final ClickEvent event) {
         try {
           delimSize = Integer.parseInt(scaleDelimiterSizeBox.getText().trim());
           delimSize = (delimSize > 0) ? delimSize : 0;
@@ -120,7 +122,8 @@ public class InrerractiveSample<T extends SliderBar> extends AbsolutePanel {
     });
 
     setValueButton.addClickHandler(new ClickHandler() {
-      public void onClick(ClickEvent event) {
+      @Override
+      public void onClick(final ClickEvent event) {
         try {
           int valueInt = Integer.parseInt(valueBox.getValue().trim());
           sliderBar.setValue(valueInt);
@@ -131,7 +134,8 @@ public class InrerractiveSample<T extends SliderBar> extends AbsolutePanel {
     });
 
     showScale.addClickHandler(new ClickHandler() {
-      public void onClick(ClickEvent event) {
+      @Override
+      public void onClick(final ClickEvent event) {
         if (((CheckBox) event.getSource()).getValue()) {
           sliderBar.drawMarks(scaleColor.getItemText(scaleColor.getSelectedIndex()), 6);
         } else {
@@ -141,7 +145,8 @@ public class InrerractiveSample<T extends SliderBar> extends AbsolutePanel {
     });
 
     setMaxValueButton.addClickHandler(new ClickHandler() {
-      public void onClick(ClickEvent event) {
+      @Override
+      public void onClick(final ClickEvent event) {
         try {
           int maxValueInt = Integer.parseInt(maxValueBox.getValue().trim());
           sliderBar.setMaxValue(maxValueInt);
@@ -152,7 +157,8 @@ public class InrerractiveSample<T extends SliderBar> extends AbsolutePanel {
     });
 
     setPixelSizeButton.addClickHandler(new ClickHandler() {
-      public void onClick(ClickEvent event) {
+      @Override
+      public void onClick(final ClickEvent event) {
         int barPixelSize;
         try {
           barPixelSize = Integer.parseInt(pixelSizeBox.getValue().trim());
@@ -178,19 +184,20 @@ public class InrerractiveSample<T extends SliderBar> extends AbsolutePanel {
     });
 
     detachButton.addClickHandler(new ClickHandler() {
-      public void onClick(ClickEvent event) {
+      @Override
+      public void onClick(final ClickEvent event) {
         if (sliderBar.isAttached()) {
-          InrerractiveSample.this.remove((FocusPanel) sliderBar);
+          InrerractiveSample.this.remove(sliderBar);
           detachButton.setText("Attach Sliderbar");
         } else {
-          InrerractiveSample.this.add((FocusPanel) sliderBar, 5, 5);
+          InrerractiveSample.this.add(sliderBar, 5, 5);
           detachButton.setText("Detach Sliderbar");
         }
       }
     });
   }
 
-  public String getIntSubstr(String str) {
+  public String getIntSubstr(final String str) {
     for (int i = str.length(); i > 0; i--) {
       try {
         Integer.parseInt(str.substring(0, i));

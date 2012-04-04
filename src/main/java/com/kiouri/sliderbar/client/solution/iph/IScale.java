@@ -11,22 +11,22 @@ public class IScale extends TouchableAbsolutePanelPK {
   int imgHeight;
   int imgWidth;
 
-  public IScale(String leftTxt, String rightTxt, int imgWidth, int imgHeight) {
+  public IScale(final String leftTxt, final String rightTxt, final int imgWidth, final int imgHeight) {
     this.imgWidth = imgWidth;
     this.imgHeight = imgHeight;
     leftLabel.setText(leftTxt);
     rightLabel.setText(rightTxt);
   }
 
-  public void addLeftStyleName(String styleName) {
+  public void addLeftStyleName(final String styleName) {
     leftLabel.addStyleName(styleName);
   }
 
-  public void addRightStyleName(String styleName) {
+  public void addRightStyleName(final String styleName) {
     rightLabel.addStyleName(styleName);
   }
 
-  public void setBackGroundImage(Image image) {
+  public void setBackGroundImage(final Image image) {
     this.image = image;
     this.add(image, 0, 0);
     this.add(leftLabel, 0, 0);
@@ -40,6 +40,7 @@ public class IScale extends TouchableAbsolutePanelPK {
         / 2, (imgHeight - rightLabel.getOffsetHeight()) / 2);
   }
 
+  @Override
   protected void onLoad() {
     super.onLoad();
     setPixelSize(image.getOffsetWidth(), image.getOffsetHeight());

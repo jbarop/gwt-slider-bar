@@ -11,7 +11,7 @@ public class KDEHorizontalLeftBW extends SliderBarHorizontal {
 
   ImagesKDEHorizontalLeftBW images = GWT.create(ImagesKDEHorizontalLeftBW.class);
 
-  public KDEHorizontalLeftBW(int maxValue, String width) {
+  public KDEHorizontalLeftBW(final int maxValue, final String width) {
 
     setLessWidget(new Image(images.less()));
     setMoreWidget(new Image(images.more()));

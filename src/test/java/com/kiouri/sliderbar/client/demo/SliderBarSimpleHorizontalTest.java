@@ -11,16 +11,17 @@ public class SliderBarSimpleHorizontalTest {
   SliderBarSimpleHorizontal sliderBarSimpleHorizontal;
 
   public SliderBarSimpleHorizontalTest(
-      int maxValue,
-      String width,
-      int left,
-      int top,
-      boolean showRows) {
+      final int maxValue,
+      final String width,
+      final int left,
+      final int top,
+      final boolean showRows) {
 
     sliderBarSimpleHorizontal = new SliderBarSimpleHorizontal(maxValue, width, showRows);
 
     sliderBarSimpleHorizontal.addBarValueChangedHandler(new BarValueChangedHandler() {
-      public void onBarValueChanged(BarValueChangedEvent event) {
+      @Override
+      public void onBarValueChanged(final BarValueChangedEvent event) {
         GWT.log("value = " + event.getValue());
       }
     });

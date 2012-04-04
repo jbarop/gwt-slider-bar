@@ -33,7 +33,7 @@ public abstract class SliderBar extends FocusPanel implements Display {
     this.add(absPanel);
   }
 
-  public SliderBar(Presenter presenter) {
+  public SliderBar(final Presenter presenter) {
     if (presenter == null) {
       this.presenter = new Presenter(this, getOrientation());
     } else {
@@ -46,6 +46,7 @@ public abstract class SliderBar extends FocusPanel implements Display {
   /**
    * @return knob widget
    */
+  @Override
   public Widget getDragWidget() {
     return drag;
   }
@@ -53,7 +54,8 @@ public abstract class SliderBar extends FocusPanel implements Display {
   /**
    * Sets knob visible. Knob becomes invisible if maxValue equals zero.
    */
-  public void setDragVisible(boolean isVisible) {
+  @Override
+  public void setDragVisible(final boolean isVisible) {
     if (drag != null) {
       drag.setVisible(isVisible);
     }
@@ -62,6 +64,7 @@ public abstract class SliderBar extends FocusPanel implements Display {
   /**
    * @return list of buttons that increase the current value (knob moves right or down)
    */
+  @Override
   public ArrayList<Widget> getLessWidgets() {
     return less;
   }
@@ -69,10 +72,12 @@ public abstract class SliderBar extends FocusPanel implements Display {
   /**
    * @return list of buttons that reduce the current value (knob moves left or up)
    */
+  @Override
   public ArrayList<Widget> getMoreWidgets() {
     return more;
   }
 
+  @Override
   public Widget getScaleWidget() {
     return scale;
   }
@@ -86,7 +91,7 @@ public abstract class SliderBar extends FocusPanel implements Display {
    * 
    * @param moreWidget - widget which supports handling of onMouseClick event
    */
-  protected void setMoreWidget(Widget moreWidget) {
+  protected void setMoreWidget(final Widget moreWidget) {
     orderedWidgets.add(moreWidget);
     more.add(moreWidget);
   }
@@ -96,7 +101,7 @@ public abstract class SliderBar extends FocusPanel implements Display {
    * 
    * @param moreWidget - widget which supports handling of onMouseClick event
    */
-  protected void setLessWidget(Widget lessWidget) {
+  protected void setLessWidget(final Widget lessWidget) {
     orderedWidgets.add(lessWidget);
     less.add(lessWidget);
   }
@@ -105,7 +110,7 @@ public abstract class SliderBar extends FocusPanel implements Display {
    * 
    * @param drag - widget for knob representing
    */
-  protected void setDragWidget(Widget drag) {
+  protected void setDragWidget(final Widget drag) {
     this.drag = drag;
   }
 
@@ -117,12 +122,13 @@ public abstract class SliderBar extends FocusPanel implements Display {
    *          It is possible to adjust thickness of scale with help of this parameter.
    * 
    */
-  protected void setScaleWidget(Widget scaleWidget, int scaleSize) {
+  protected void setScaleWidget(final Widget scaleWidget, final int scaleSize) {
     orderedWidgets.add(scaleWidget);
     this.scale = scaleWidget;
     this.scaleSize = scaleSize;
   }
 
+  @Override
   public Widget getRootWidget() {
     return this;
   }
@@ -142,7 +148,7 @@ public abstract class SliderBar extends FocusPanel implements Display {
    * @param delimSize - height of marks for horizontal sliderbar or width of marks for vertical
    *          sliderbar
    */
-  public void drawMarks(String color, int delimSize) {
+  public void drawMarks(final String color, final int delimSize) {
     if (!isMarksPlaced) {
       this.color = color;
       this.delimSize = delimSize;
@@ -173,7 +179,8 @@ public abstract class SliderBar extends FocusPanel implements Display {
    * @param barValueChangedHandler
    * @return HandlerRegistration used to remove this handler
    */
-  public HandlerRegistration addBarValueChangedHandler(BarValueChangedHandler barValueChangedHandler) {
+  public HandlerRegistration addBarValueChangedHandler(
+      final BarValueChangedHandler barValueChangedHandler) {
     return presenter.addBarValueChangedHandler(barValueChangedHandler);
   }
 
@@ -182,11 +189,11 @@ public abstract class SliderBar extends FocusPanel implements Display {
    * 
    * @param value
    */
-  public void setValue(int value) {
+  public void setValue(final int value) {
     presenter.setValue(value);
   }
 
-  protected void prepare(int maxValue, int pixelSize) {
+  protected void prepare(final int maxValue, final int pixelSize) {
     drawScrollBar(pixelSize);
     presenter.setMaxValue(maxValue);
     presenter.setAbsMaxLength(getAbsMaxLength());
@@ -209,7 +216,7 @@ public abstract class SliderBar extends FocusPanel implements Display {
    * 
    * @param maxValue
    */
-  public void setMaxValue(int maxValue) {
+  public void setMaxValue(final int maxValue) {
     presenter.setMaxValue(maxValue);
     presenter.processParams();
     try {
@@ -239,6 +246,7 @@ public abstract class SliderBar extends FocusPanel implements Display {
     return presenter.getValue();
   }
 
+  @Override
   protected void onLoad() {
     super.onLoad();
 
@@ -283,7 +291,7 @@ public abstract class SliderBar extends FocusPanel implements Display {
    * 
    * @param minMarkStep
    */
-  public void setMinMarkStep(int minMarkStep) {
+  public void setMinMarkStep(final int minMarkStep) {
     presenter.setMinMarkStep(minMarkStep);
   }
 

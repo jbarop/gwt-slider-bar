@@ -11,16 +11,17 @@ public class SliderBarSimpleVerticalTest {
   SliderBarSimpleVertical sliderBarSimpleVertical;
 
   public SliderBarSimpleVerticalTest(
-      int maxValue,
-      String height,
-      int left,
-      int top,
-      boolean showRows) {
+      final int maxValue,
+      final String height,
+      final int left,
+      final int top,
+      final boolean showRows) {
 
     sliderBarSimpleVertical = new SliderBarSimpleVertical(maxValue, height, showRows);
 
     sliderBarSimpleVertical.addBarValueChangedHandler(new BarValueChangedHandler() {
-      public void onBarValueChanged(BarValueChangedEvent event) {
+      @Override
+      public void onBarValueChanged(final BarValueChangedEvent event) {
         GWT.log("value = " + event.getValue());
       }
     });

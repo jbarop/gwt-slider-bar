@@ -5,7 +5,11 @@ import com.kiouri.sliderbar.client.solution.simplehorizontal.SliderBarSimpleHori
 
 public class InterractiveHorizontal {
 
-  public InterractiveHorizontal(int maxValue, String width, int left, int top) {
+  public InterractiveHorizontal(
+      final int maxValue,
+      final String width,
+      final int left,
+      final int top) {
     SliderBarSimpleHorizontal sliderBarSimpleHorizontal = new SliderBarSimpleHorizontal(maxValue,
         width, true);
 

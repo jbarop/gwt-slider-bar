@@ -6,7 +6,7 @@ public class Mark extends TouchableAbsolutePanelPK { // AbsolutePanelPK {
 
   int markWidth, markHeight;
 
-  public Mark(String color, int width, int height) {
+  public Mark(final String color, final int width, final int height) {
 
     this.markWidth = width;
     this.markHeight = height;

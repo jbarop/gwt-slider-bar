@@ -11,7 +11,7 @@ public class KDEVerticalBottomBW extends SliderBarVertical {
 
   ImagesKDEVerticalBottomBW images = GWT.create(ImagesKDEVerticalBottomBW.class);
 
-  public KDEVerticalBottomBW(int maxValue, String height) {
+  public KDEVerticalBottomBW(final int maxValue, final String height) {
     setLessWidget(new Image(images.less()));
     setScaleWidget(new Image(images.scale().getUrl()), 16);
     setMoreWidget(new Image(images.less()));

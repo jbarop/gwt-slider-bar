@@ -2,7 +2,7 @@ package com.kiouri.sliderbar.client.exception;
 
 public class WidgetNotFoundError extends Error {
 
-  public WidgetNotFoundError(String message) {
+  public WidgetNotFoundError(final String message) {
     super(message);
   }
 

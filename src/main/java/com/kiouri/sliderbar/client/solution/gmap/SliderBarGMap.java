@@ -11,7 +11,7 @@ public class SliderBarGMap extends SliderBarVertical {
 
   ImagesSliderBarGMap images = GWT.create(ImagesSliderBarGMap.class);
 
-  public SliderBarGMap(int maxValue, String height, boolean selectInFocus) {
+  public SliderBarGMap(final int maxValue, final String height, final boolean selectInFocus) {
 
     setLessWidget(new Image(images.less()));
     setScaleWidget(new Image(images.scale().getUrl()), 6);

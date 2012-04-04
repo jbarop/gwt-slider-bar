@@ -28,7 +28,7 @@ public class SliderBarHorizontal extends SliderBar {
     return barHeight;
   }
 
-  protected void ajustScaleSize(int widgetWidth) {
+  protected void ajustScaleSize(final int widgetWidth) {
     scaleWidth = widgetWidth;
     if (less != null) {
       for (int i = 0; i < less.size(); i++) {
@@ -43,11 +43,13 @@ public class SliderBarHorizontal extends SliderBar {
     scale.setPixelSize(scaleWidth, scaleSize);
   }
 
+  @Override
   public int getAbsMaxLength() {
     return scaleWidth - drag.getOffsetWidth();
   }
 
-  public void drawScrollBar(int barWidth) {
+  @Override
+  public void drawScrollBar(final int barWidth) {
     absPanel.clear();
     putWidgetsToAbsPanel();
     initVariables(barWidth);
@@ -58,13 +60,13 @@ public class SliderBarHorizontal extends SliderBar {
     absPanel.setWidgetPosition(drag, getScaleLeft(orderedWidgets), dragTopPosition);
   }
 
-  protected void initVariables(int barWidth) {
+  protected void initVariables(final int barWidth) {
     this.barWidth = barWidth;
     startPosition = getScaleLeft(orderedWidgets);
     dragTopPosition = (getBarHeight() - drag.getOffsetHeight()) / 2;
   }
 
-  protected int getScaleLeft(ArrayList<Widget> widgets) {
+  protected int getScaleLeft(final ArrayList<Widget> widgets) {
     int sPosition = 0;
     for (int i = 0; i < widgets.size(); i++) {
       if (widgets.get(i) != scale) {
@@ -76,7 +78,7 @@ public class SliderBarHorizontal extends SliderBar {
     return sPosition;
   }
 
-  protected void placeWidgets(ArrayList<Widget> widgets) {
+  protected void placeWidgets(final ArrayList<Widget> widgets) {
     int tmpPosition = 0;
     int barHeight = getBarHeight();
     for (int i = 0; i < widgets.size(); i++) {
@@ -90,15 +92,18 @@ public class SliderBarHorizontal extends SliderBar {
     }
   }
 
+  @Override
   public void setDragPosition(int position) {
     position = startPosition + position;
     absPanel.setWidgetPosition(drag, position, dragTopPosition);
   }
 
-  public int getScaleTouchPosition(MouseEvent event) {
+  @Override
+  public int getScaleTouchPosition(final MouseEvent event) {
     return event.getRelativeX(this.getElement()) - startPosition - drag.getOffsetWidth() / 2;
   }
 
+  @Override
   public int getDragPosition() {
     return absPanel.getWidgetLeft(drag) - startPosition;
   }
@@ -106,11 +111,13 @@ public class SliderBarHorizontal extends SliderBar {
   /**
    * Sets scale mark to scale
    */
-  public void putMark(Mark mark, int markPosition) {
+  @Override
+  public void putMark(final Mark mark, final int markPosition) {
     int markY = (this.barHeight - mark.getMarkHeight()) / 2;
     this.absPanel.add(mark, this.startPosition + markPosition + drag.getOffsetWidth() / 2, markY);
   }
 
+  @Override
   public Orientation getOrientation() {
     return Orientation.HORIZONTAL;
   }
@@ -120,12 +127,12 @@ public class SliderBarHorizontal extends SliderBar {
    * It is not possible to adjust height of horizontal sliderbar with help of this method. 
    * Height of horizontal sliderbar is automatically calculated on base of height of components which are included in widget   
    */
-  public void setHeight(String height) {
+  public void setHeight(final String height) {
     super.setHeight(getBarHeight() + "px");
   }
 
   @Override
-  public void setWidth(String width) {
+  public void setWidth(final String width) {
     super.setWidth(width);
     if (isAttached()) {
       presenter.setBarPixelSize(this.getOffsetWidth());
@@ -135,7 +142,8 @@ public class SliderBarHorizontal extends SliderBar {
     }
   }
 
-  public void setScaleWidget(Widget scaleWidget, int scaleHeight) {
+  @Override
+  public void setScaleWidget(final Widget scaleWidget, final int scaleHeight) {
     super.setScaleWidget(scaleWidget, scaleHeight);
   }
 

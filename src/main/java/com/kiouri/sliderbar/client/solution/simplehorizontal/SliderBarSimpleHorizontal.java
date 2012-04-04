@@ -11,7 +11,7 @@ public class SliderBarSimpleHorizontal extends SliderBarHorizontal {
 
   ImagesSliderBarSimpleHorizontal images = GWT.create(ImagesSliderBarSimpleHorizontal.class);
 
-  public SliderBarSimpleHorizontal(int maxValue, String width, boolean showRows) {
+  public SliderBarSimpleHorizontal(final int maxValue, final String width, final boolean showRows) {
     if (showRows) {
       setLessWidget(new Image(images.less()));
       setScaleWidget(new Image(images.scaleh().getUrl()), 10);

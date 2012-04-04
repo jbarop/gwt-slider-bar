@@ -11,7 +11,7 @@ public class SliderBarSimpleVertical extends SliderBarVertical {
 
   ImagesSliderBarSimpleVertical images = GWT.create(ImagesSliderBarSimpleVertical.class);
 
-  public SliderBarSimpleVertical(int maxValue, String height, boolean showRows) {
+  public SliderBarSimpleVertical(final int maxValue, final String height, final boolean showRows) {
     if (showRows) {
       setLessWidget(new Image(images.less()));
       setScaleWidget(new Image(images.scalev().getUrl()), 10);
