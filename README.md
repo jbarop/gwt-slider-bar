@@ -1,4 +1,4 @@
-# gwt-slider-panel
+# gwt-slider-bar (SliderBarMVP)
 
 Ready to use sliderbar widgets for GWT and framework for creation Your own SliderBars.
 
