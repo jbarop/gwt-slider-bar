@@ -9,22 +9,25 @@ import com.kiouri.sliderbar.client.view.SliderBarHorizontal;
 
 public class IpSliderBar51 extends SliderBarHorizontal {
 
-  ImagesIpSliderBar51 images = GWT.create(ImagesIpSliderBar51.class);
+  private final Resources resources;
 
-  public IpSliderBar51(String leftTxt, String rightTxt) {
+  public IpSliderBar51(final String leftTxt, final String rightTxt) {
+    resources = GWT.create(Resources.class);
+    resources.css().ensureInjected();
+
     IScale iScale = new IScale(leftTxt, rightTxt, 51, 27);
-    iScale.setBackGroundImage(new Image(images.scale().getUrl()));
-    this.setLessWidget(new Image(images.moreLess()));
+    iScale.setBackGroundImage(new Image(resources.scale().getUrl()));
+    this.setLessWidget(new Image(resources.moreLess()));
     setScaleWidget(iScale, 27);
-    this.setLessWidget(new Image(images.moreLess()));
-    this.setDragWidget(new Image(images.drag()));
-    iScale.addLeftStyleName("ip51darlabelsmall");
-    iScale.addRightStyleName("ip51darlabelsmall");
+    this.setLessWidget(new Image(resources.moreLess()));
+    this.setDragWidget(new Image(resources.drag()));
+    iScale.addLeftStyleName(resources.css().ip51darLabelSmall());
+    iScale.addRightStyleName(resources.css().ip51darLabelSmall());
     this.setWidth("53px");
     this.setMaxValue(1);
   }
 
-  interface ImagesIpSliderBar51 extends ClientBundle {
+  interface Resources extends ClientBundle {
     @Source("ifml.png")
     ImageResource moreLess();
 
@@ -33,6 +36,9 @@ public class IpSliderBar51 extends SliderBarHorizontal {
 
     @Source("ionoffscl.png")
     DataResource scale();
+
+    @Source("IpSliderBarCss.css")
+    IpSliderBarCss css();
   }
 
 }

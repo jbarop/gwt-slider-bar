@@ -44,6 +44,52 @@
       </resource>
     </resources>
 
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>gwt-maven-plugin</artifactId>
+        <version>${gwt.maven-plugin.version}</version>
+        <executions>
+          <execution>
+            <id>css-generation</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>css</goal>
+            </goals>
+            <configuration>
+              <cssFiles>
+                <cssFile>com/kiouri/sliderbar/client/solution/iph/IpSliderBarCss.css</cssFile>
+                <cssFile>com/kiouri/sliderbar/client/solution/adv/MAdvancedCss.css</cssFile>
+                <cssFile>com/kiouri/sliderbar/client/solution/ybar/YBarCss.css</cssFile>
+              </cssFiles>
+              <generateDirectory>${project.build.directory}/generated-sources/css</generateDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>1.7</version>
+        <executions>
+          <execution>
+            <id>add-source</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>add-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>${project.build.directory}/generated-sources/css</source>
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+
   </build>
 
   <profiles>

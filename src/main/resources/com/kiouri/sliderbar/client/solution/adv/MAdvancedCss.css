@@ -1,0 +1,9 @@
+.madv-not-selected {
+  background-color: #E0E0E0;
+  border: 1px solid darkgrey;
+}
+
+.madv-selected {
+  background-color: lightblue;
+  border: 1px solid darkgrey;
+}
