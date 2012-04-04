@@ -3,8 +3,6 @@
 
   <inherits name='com.google.gwt.user.User' />
 
-  <stylesheet src='css/style.css' />
-
   <source path='client' />
 
 </module>
