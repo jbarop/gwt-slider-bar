@@ -14,7 +14,7 @@ public class SliderBarGMap extends SliderBarVertical {
   public SliderBarGMap(final int maxValue, final String height, final boolean selectInFocus) {
 
     setLessWidget(new Image(images.less()));
-    setScaleWidget(new Image(images.scale().getUrl()), 6);
+    setScaleWidget(new Image(images.scale().getSafeUri()), 6);
     setMoreWidget(new Image(images.more()));
     setDragWidget(new Image(images.drag()));
     this.setHeight(height);

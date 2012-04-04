@@ -108,7 +108,7 @@ public class SliderBarVertical extends SliderBar {
   }
 
   @Override
-  public int getScaleTouchPosition(final MouseEvent event) {
+  public int getScaleTouchPosition(final MouseEvent<?> event) {
     return event.getRelativeY(this.getElement()) - startPosition - drag.getOffsetHeight() / 2;
   }
 

@@ -16,7 +16,7 @@ public class IpSliderBar51 extends SliderBarHorizontal {
     resources.css().ensureInjected();
 
     IScale iScale = new IScale(leftTxt, rightTxt, 51, 27);
-    iScale.setBackGroundImage(new Image(resources.scale().getUrl()));
+    iScale.setBackGroundImage(new Image(resources.scale().getSafeUri()));
     this.setLessWidget(new Image(resources.moreLess()));
     setScaleWidget(iScale, 27);
     this.setLessWidget(new Image(resources.moreLess()));

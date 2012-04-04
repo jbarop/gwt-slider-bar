@@ -13,7 +13,7 @@ public class SpeedAjuster extends SliderBarHorizontal {
 
   public SpeedAjuster() {
     this.setLessWidget(new Image(images.less()));
-    this.setScaleWidget(new Image(images.scale().getUrl()), 20);
+    this.setScaleWidget(new Image(images.scale().getSafeUri()), 20);
     this.setMoreWidget(new Image(images.more()));
     this.setDragWidget(new Image(images.drag()));
     this.setMaxValue(6);

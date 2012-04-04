@@ -99,7 +99,7 @@ public class SliderBarHorizontal extends SliderBar {
   }
 
   @Override
-  public int getScaleTouchPosition(final MouseEvent event) {
+  public int getScaleTouchPosition(final MouseEvent<?> event) {
     return event.getRelativeX(this.getElement()) - startPosition - drag.getOffsetWidth() / 2;
   }
 

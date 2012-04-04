@@ -13,7 +13,7 @@ public class SizeAjuster extends SliderBarHorizontal {
 
   public SizeAjuster() {
     this.setLessWidget(new Image(images.less()));
-    this.setScaleWidget(new Image(images.scale().getUrl()), 4);
+    this.setScaleWidget(new Image(images.scale().getSafeUri()), 4);
     this.setMoreWidget(new Image(images.more()));
     this.setDragWidget(new Image(images.drag()));
     this.setMaxValue(4);

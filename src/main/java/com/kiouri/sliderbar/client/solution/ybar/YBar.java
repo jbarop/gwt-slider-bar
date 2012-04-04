@@ -23,7 +23,7 @@ public class YBar extends SliderBarVertical {
     resources.css().ensureInjected();
 
     setLessWidget(new Image(resources.less()));
-    Image scale = new Image(resources.scale().getUrl());
+    Image scale = new Image(resources.scale().getSafeUri());
     scale.addStyleName(resources.css().yBarScale());
     setScaleWidget(scale, 25);
     setMoreWidget(new Image(resources.more()));

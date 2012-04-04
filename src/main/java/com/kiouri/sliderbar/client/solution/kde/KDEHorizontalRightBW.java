@@ -13,7 +13,7 @@ public class KDEHorizontalRightBW extends SliderBarHorizontal {
 
   public KDEHorizontalRightBW(final int maxValue, final String width) {
     setLessWidget(new Image(images.less()));
-    setScaleWidget(new Image(images.scale().getUrl()), 16);
+    setScaleWidget(new Image(images.scale().getSafeUri()), 16);
     setMoreWidget(new Image(images.less()));
     setMoreWidget(new Image(images.more()));
     setDragWidget(new Image(images.drag()));

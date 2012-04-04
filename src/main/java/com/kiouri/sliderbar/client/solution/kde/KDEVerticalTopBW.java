@@ -14,7 +14,7 @@ public class KDEVerticalTopBW extends SliderBarVertical {
   public KDEVerticalTopBW(final int maxValue, final String height) {
     setLessWidget(new Image(images.less()));
     setMoreWidget(new Image(images.more()));
-    setScaleWidget(new Image(images.scale().getUrl()), 16);
+    setScaleWidget(new Image(images.scale().getSafeUri()), 16);
     setMoreWidget(new Image(images.more()));
     setDragWidget(new Image(images.drag()));
     this.setHeight(height);

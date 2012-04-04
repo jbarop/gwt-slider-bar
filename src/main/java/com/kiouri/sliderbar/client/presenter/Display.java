@@ -28,7 +28,7 @@ public interface Display {
 
   Orientation getOrientation();
 
-  int getScaleTouchPosition(MouseEvent event);
+  int getScaleTouchPosition(MouseEvent<?> event);
 
   int getDragPosition();
 

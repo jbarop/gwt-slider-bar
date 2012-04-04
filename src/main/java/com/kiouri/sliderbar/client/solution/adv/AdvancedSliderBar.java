@@ -23,7 +23,7 @@ public class AdvancedSliderBar extends SliderBarHorizontal {
         images.moreSelected()));
 
     this.setLessWidget(less);
-    this.setScaleWidget(new Image(images.scale().getUrl()), 4);
+    this.setScaleWidget(new Image(images.scale().getSafeUri()), 4);
     this.setMoreWidget(more);
     this.setDragWidget(drag);
     this.setMaxValue(4);

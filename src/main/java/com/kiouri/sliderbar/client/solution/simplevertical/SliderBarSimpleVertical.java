@@ -14,10 +14,10 @@ public class SliderBarSimpleVertical extends SliderBarVertical {
   public SliderBarSimpleVertical(final int maxValue, final String height, final boolean showRows) {
     if (showRows) {
       setLessWidget(new Image(images.less()));
-      setScaleWidget(new Image(images.scalev().getUrl()), 10);
+      setScaleWidget(new Image(images.scalev().getSafeUri()), 10);
       setMoreWidget(new Image(images.more()));
     } else {
-      setScaleWidget(new Image(images.scalev().getUrl()), 10);
+      setScaleWidget(new Image(images.scalev().getSafeUri()), 10);
     }
     setDragWidget(new Image(images.drag()));
     this.setHeight(height);

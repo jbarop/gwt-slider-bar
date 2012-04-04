@@ -14,10 +14,10 @@ public class SliderBarSimpleHorizontal extends SliderBarHorizontal {
   public SliderBarSimpleHorizontal(final int maxValue, final String width, final boolean showRows) {
     if (showRows) {
       setLessWidget(new Image(images.less()));
-      setScaleWidget(new Image(images.scaleh().getUrl()), 10);
+      setScaleWidget(new Image(images.scaleh().getSafeUri()), 10);
       setMoreWidget(new Image(images.more()));
     } else {
-      setScaleWidget(new Image(images.scaleh().getUrl()), 10);
+      setScaleWidget(new Image(images.scaleh().getSafeUri()), 10);
     }
     setDragWidget(new Image(images.drag()));
     this.setWidth(width);

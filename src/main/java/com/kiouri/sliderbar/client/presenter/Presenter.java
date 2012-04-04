@@ -349,7 +349,7 @@ public class Presenter {
     }
   }
 
-  protected void stopDefaultAndPropagationForEvent(final DomEvent event) {
+  protected void stopDefaultAndPropagationForEvent(final DomEvent<?> event) {
     event.preventDefault();
     event.stopPropagation();
   }
