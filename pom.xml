@@ -42,6 +42,9 @@
       <resource>
         <directory>${basedir}/src/main/java</directory>
       </resource>
+      <resource>
+        <directory>${project.build.directory}/generated-sources/css</directory>
+      </resource>
     </resources>
 
     <plugins>
